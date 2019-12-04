@@ -91,7 +91,7 @@ final public class UICircularTimerRing: UICircularRing {
         time = endTime
         timerHandler = handler
     }
-
+    
     /**
      Pauses the timer.
 
@@ -133,6 +133,11 @@ final public class UICircularTimerRing: UICircularRing {
         ringLayer.maxValue = time.float
         ringLayer.valueFormatter = valueFormatter
         ringLayer.animationTimingFunction = .linear
+    }
+    
+    // add currentTime function
+    public func currentTime() -> TimeInterval {
+        return layer.presentation()?.value(forKey: .value) as? TimeInterval ?? 0.0
     }
 }
 
